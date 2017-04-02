@@ -4,7 +4,7 @@ public class Pais {
 
 	int id;	
 	String nome;
-	long populacao;
+	double populacao;
 	double area;
 	
 	public Pais(){
@@ -36,11 +36,11 @@ public class Pais {
 		this.nome = nome;
 	}
 
-	public long getPopulacao() {
+	public double getPopulacao() {
 		return populacao;
 	}
 
-	public void setPopulacao(long populacao) {
+	public void setPopulacao(double populacao) {
 		this.populacao = populacao;
 	}
 

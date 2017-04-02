@@ -11,10 +11,10 @@ public class PaisService {
 		this.dao = new PaisDao();
 	}
 
-	public void criar(Pais pais){
-		dao.criar(pais);
+	public int criar(Pais pais){
+		return dao.criar(pais);
 	}
-	
+		
 	public Pais carregar(int id){
 		return dao.carregar(id);
 	}

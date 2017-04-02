@@ -12,7 +12,7 @@ public class MainPais {
 		
 		Pais p = new Pais(1, "Brasil", 310000000, 610000000);
 		Pais pTeste = new Pais(5, "TESTE", 999999, 999999);
-		
+		/*
 		JOptionPane.showMessageDialog(null, "SELECT "+ novo.carregar(1));
 		
 		novo.atualizar(p);
@@ -24,7 +24,7 @@ public class MainPais {
 		novo.criar(pTeste);
 		JOptionPane.showMessageDialog(null, "Criado "+ novo.carregar(5));
 		novo.excluir(pTeste);
-		JOptionPane.showMessageDialog(null, "Excluido "+ novo.carregar(5));
+		JOptionPane.showMessageDialog(null, "Excluido "+ novo.carregar(5)); */
 						
 		for (Pais pFor: novo.vetor3()) {
 			
