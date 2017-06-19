@@ -1,4 +1,4 @@
-package teste;
+package test;
 
 import static org.junit.Assert.assertEquals;
 
@@ -40,17 +40,17 @@ public class PaisTest {
 	@Test
 	public void test00Carregar() {
 		System.out.println("carregar");
-		//para funcionar o cliente 1 deve ter sido carregado no banco por fora
+		//para funcionar o cliente 5 deve ter sido carregado no banco por fora
 		Pais fixture = new Pais();
 		fixture.setId(5);
-		fixture.setNome("Teste");
-		fixture.setPopulacao(12);
-		fixture.setArea(12);
+		fixture.setNome("Paiszao");
+		fixture.setPopulacao(1.0);
+		fixture.setArea(154.0);
 		PaisService novoService = new PaisService();
 		Pais novo = novoService.carregar(5);
 		assertEquals("testa inclusao", novo, fixture);
 	}
-	
+		
 	@Test
 	public void testCriar() {
 		System.out.println("criar");

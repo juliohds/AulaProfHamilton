@@ -4,6 +4,7 @@ import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.util.ArrayList;
 
 import model.Pais;
 
@@ -59,8 +60,11 @@ public class PaisDao {
 			stm.setInt(1, pais.getId());
 			stm.execute();
 		} catch (Exception e) {
+			
 			e.printStackTrace();
+	
 		}
+
 	}
 	
 	
@@ -77,8 +81,8 @@ public class PaisDao {
 			try (ResultSet rs = stm.executeQuery();) {
 				if (rs.next()) {
 					pais.setNome(rs.getString("nome"));
-					pais.setPopulacao(1);
-					pais.setArea(1);
+					pais.setPopulacao(rs.getDouble("populacao"));
+					pais.setArea(rs.getDouble("area"));
 				} else {
 					pais.setId(-1);
 					pais.setNome(null);
@@ -183,5 +187,28 @@ public class PaisDao {
 		return pais;
 	}
 	
-	
+	public ArrayList<Pais> listarPaises() {
+		Pais pais;
+		ArrayList<Pais> lista = new ArrayList<>();
+		String sqlSelect = "SELECT id, nome, populacao, area FROM pais";
+		// usando o try with resources do Java 7, que fecha o que abriu
+		try (Connection conn = ConnectionFactory.obtemConexao();
+				PreparedStatement stm = conn.prepareStatement(sqlSelect);) {
+			try (ResultSet rs = stm.executeQuery();) {
+				while (rs.next()) {
+					pais = new Pais();
+					pais.setId(rs.getInt("id"));
+					pais.setNome(rs.getString("nome"));
+					pais.setPopulacao(rs.getDouble("populacao"));
+					pais.setArea(rs.getDouble("area"));
+					lista.add(pais);
+				}
+			} catch (SQLException e) {
+				e.printStackTrace();
+			}
+		} catch (SQLException e1) {
+			System.out.print(e1.getStackTrace());
+		}
+		return lista;
+	}
 }

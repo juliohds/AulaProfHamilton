@@ -1,5 +1,7 @@
 package service;
 
+import java.util.ArrayList;
+
 import dao.PaisDao;
 import model.Pais;
 
@@ -24,6 +26,7 @@ public class PaisService {
 	}
 	
 	public void excluir(Pais pais){
+		
 		dao.excluir(pais);
 	}
 	
@@ -39,7 +42,9 @@ public class PaisService {
 		return dao.retornaUmVetor3();
 	}
 	
-	
+	public ArrayList<Pais> listarPaises(){
+		return dao.listarPaises();
+	}
 	
 	
 	
